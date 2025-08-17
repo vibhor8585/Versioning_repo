@@ -17,7 +17,7 @@ BASE_URL = "https://api.assembla.com"
 # ---------------------------
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS", "vibhorn@plasmacomp.com")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD", "wrnvnkbbblxmgqns") 
-TO_EMAIL = os.getenv("TO_EMAIL", "vibhornanda09@gmail.com")
+TO_EMAIL = os.getenv("TO_EMAIL", "fukravibhor9874@gmail.com")
 CC_EMAIL = os.getenv(" ")
 
 SMTP_SERVER = "smtp.office365.com"

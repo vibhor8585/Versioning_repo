@@ -114,7 +114,7 @@ def send_email_smtp(bad_milestones):
             server.starttls()
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
             server.send_message(msg)
-        print(" Email sent successfully via SMTP!")
+        print(" Email sent successfully!")
     except smtplib.SMTPAuthenticationError:
         print(" Authentication failed. Check your email/password or use an app password if MFA is enabled.")
     except smtplib.SMTPException as e:

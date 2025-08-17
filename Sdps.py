@@ -17,8 +17,9 @@ BASE_URL = "https://api.assembla.com"
 # ---------------------------
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS", "vibhorn@plasmacomp.com")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD", "wrnvnkbbblxmgqns") 
-TO_EMAIL = os.getenv("TO_EMAIL", "fukravibhor9874@gmail.com")
-CC_EMAIL = os.getenv(" ")
+TO_EMAIL = os.getenv("TO_EMAIL", "vibhornanda09@gmail.com")
+CC_EMAILS = ["fukravibhor9874@gmail.com", "1902572.ece.cec@cgc.edu.in"]
+
 
 SMTP_SERVER = "smtp.office365.com"
 SMTP_PORT = 587
@@ -106,7 +107,7 @@ def send_email_smtp(bad_milestones):
     msg['Subject'] = subject
     msg['From'] = EMAIL_ADDRESS
     msg['To'] = TO_EMAIL
-    msg['cc'] = CC_EMAIL
+    msg["Cc"] = ", ".join(CC_EMAILS) 
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=30) as server:

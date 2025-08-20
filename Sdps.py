@@ -17,7 +17,7 @@ BASE_URL = "https://api.assembla.com"
 # ---------------------------
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS", "vibhorn@plasmacomp.com")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD", "wrnvnkbbblxmgqns") 
-TO_EMAIL = os.getenv("TO_EMAIL", "viveka@plasmacomp.com")
+TO_EMAIL = [ "viveka@plasmacomp.com"]
 CC_EMAILS = ["devops@plasmacomp.com", "itsupport@plasmacomp.com"]
 
 
@@ -106,7 +106,7 @@ def send_email_smtp(bad_milestones):
     msg = MIMEText(body, 'plain')
     msg['Subject'] = subject
     msg['From'] = EMAIL_ADDRESS
-    msg['To'] = TO_EMAIL
+    msg['To'] = ", ".join(TO_EMAIL)
     msg["Cc"] = ", ".join(CC_EMAILS) 
 
     try:

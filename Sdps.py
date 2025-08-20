@@ -17,8 +17,8 @@ BASE_URL = "https://api.assembla.com"
 # ---------------------------
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS", "vibhorn@plasmacomp.com")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD", "wrnvnkbbblxmgqns") 
-TO_EMAIL = [ "viveka@plasmacomp.com"]
-CC_EMAILS = ["devops@plasmacomp.com", "itsupport@plasmacomp.com"]
+TO_EMAIL = [ "1902572.ece.cec@cgc.edu.in"]
+CC_EMAILS = ["fukravibhor9874@gmail.com", "vibhornanda09@gmail.com"]
 
 
 SMTP_SERVER = "smtp.office365.com"
@@ -109,12 +109,14 @@ def send_email_smtp(bad_milestones):
     msg['To'] = ", ".join(TO_EMAIL)
     msg["Cc"] = ", ".join(CC_EMAILS) 
 
+    all_recipients = TO_EMAILS + CC_EMAILS
+
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=30) as server:
             server.set_debuglevel(1)
             server.starttls()
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.send_message(msg)
+            server.sendmail(EMAIL_ADDRESS, all_recipients, msg.as_string())
         print(" Email sent successfully!")
     except smtplib.SMTPAuthenticationError:
         print(" Authentication failed. Check your email/password or use an app password if MFA is enabled.")

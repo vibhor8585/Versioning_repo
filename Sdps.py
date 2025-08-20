@@ -109,7 +109,7 @@ def send_email_smtp(bad_milestones):
     msg['To'] = ", ".join(TO_EMAIL)
     msg["Cc"] = ", ".join(CC_EMAILS) 
 
-    all_recipients = TO_EMAILS + CC_EMAILS
+    all_recipients = TO_EMAIL + CC_EMAILS
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=30) as server:
